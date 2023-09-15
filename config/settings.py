@@ -30,9 +30,7 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
-
-
-
+AUTH_USER_MODEL = 'account.User'
 
 
 INSTALLED_APPS = [
@@ -47,7 +45,10 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework_simplejwt',
     'django_filters',
+    'corsheaders',
     #apps
+    'account',
+    'post'
 
 
 ]
@@ -93,7 +94,7 @@ DATABASES = {
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': config('DB_HOST'),
         'PORT': 5432
     }
 }
@@ -161,7 +162,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 2
+    'PAGE_SIZE': 10
 }
 
 
