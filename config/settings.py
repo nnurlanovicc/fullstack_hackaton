@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'corsheaders',
     #apps
     'account',
-    'post'
+    'post',
+    'profilee',
 
 
 ]
